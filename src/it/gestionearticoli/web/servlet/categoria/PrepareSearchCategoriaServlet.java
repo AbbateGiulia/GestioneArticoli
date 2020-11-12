@@ -47,8 +47,9 @@ public class PrepareSearchCategoriaServlet extends HttpServlet {
 		try {
 			request.setAttribute("listaCategorieAttribute", service.listAll());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		
 		request.getRequestDispatcher("categoria/searchcategoria.jsp").forward(request, response);

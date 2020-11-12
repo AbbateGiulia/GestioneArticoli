@@ -65,8 +65,9 @@ public class RealDeleteArticoloServlet extends HttpServlet {
 			service.rimuovi(result);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 
 		request.getRequestDispatcher("categoria/tornalista.jsp").forward(request, response);

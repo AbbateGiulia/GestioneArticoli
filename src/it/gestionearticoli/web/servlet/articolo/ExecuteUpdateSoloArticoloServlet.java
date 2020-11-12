@@ -79,8 +79,9 @@ public class ExecuteUpdateSoloArticoloServlet extends HttpServlet {
 						return;
 					}
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+					request.getRequestDispatcher("index.jsp").forward(request, response);
 					e.printStackTrace();
+					return;
 				}
 				
 				if (codiceInputParam.isEmpty() || descrizioneInputParam.isEmpty() || prezzo < 1 || idCategoria < 0 ) {
@@ -97,8 +98,9 @@ public class ExecuteUpdateSoloArticoloServlet extends HttpServlet {
 				try {
 					result=service.findById(idCategoria);
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
+					request.getRequestDispatcher("index.jsp").forward(request, response);
 					e1.printStackTrace();
+					return;
 				}
 				
 				Articolo articoloInstance = new Articolo(codiceInputParam, descrizioneInputParam, prezzo, result);
@@ -108,7 +110,9 @@ public class ExecuteUpdateSoloArticoloServlet extends HttpServlet {
 					request.setAttribute("listaArticoliAttribute", MyServiceFactory.getArticoloServiceInstance().listAll());
 					request.setAttribute("successMessage", "Operazione effettuata con successo");
 				} catch (Exception e) {
+					request.getRequestDispatcher("index.jsp").forward(request, response);
 					e.printStackTrace();
+					return;
 				}
 
 				// DOVE VADO

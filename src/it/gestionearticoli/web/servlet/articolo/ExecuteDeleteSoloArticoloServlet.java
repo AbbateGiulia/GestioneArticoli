@@ -62,8 +62,9 @@ public class ExecuteDeleteSoloArticoloServlet extends HttpServlet {
 				return;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 
 		request.setAttribute("articoloDaRimuovere", param);

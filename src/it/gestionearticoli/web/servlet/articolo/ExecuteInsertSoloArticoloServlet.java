@@ -74,8 +74,9 @@ public class ExecuteInsertSoloArticoloServlet extends HttpServlet {
 				try {
 					result=service.findById(idCategoria);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+					request.getRequestDispatcher("index.jsp").forward(request, response);
 					e.printStackTrace();
+					return;
 				}
 				Articolo articoloInstance = new Articolo(codiceInputParam, descrizioneInputParam, prezzo, result);
 				try {

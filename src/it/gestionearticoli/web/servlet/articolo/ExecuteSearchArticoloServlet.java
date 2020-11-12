@@ -60,8 +60,10 @@ public class ExecuteSearchArticoloServlet extends HttpServlet {
 					articoloInstance.setCategoria(MyServiceFactory.getCategoriaServiceInstance()
 							.findById(Long.parseLong(request.getParameter("idCategoria"))));
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
+					request.getRequestDispatcher("index.jsp").forward(request, response);
 					e1.printStackTrace();
+					return;
+					
 				}
 				
 				

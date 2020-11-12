@@ -57,7 +57,6 @@ public class VisualizzaSoloArticoloServlet extends HttpServlet {
 		
 		Articolo result=null;
 		try {
-			System.out.println(Long.parseLong(articoloInDettaglio));
 			result = a.findById(Long.parseLong(articoloInDettaglio));
 			if (result == null) {
 				request.getRequestDispatcher("index.jsp").forward(request, response);

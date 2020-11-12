@@ -64,11 +64,13 @@ public class PrepareUpdateCategoriaServlet extends HttpServlet {
 			}
 			request.setAttribute("categoriaDaInviareAPaginaUpdate", result);
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		
 		

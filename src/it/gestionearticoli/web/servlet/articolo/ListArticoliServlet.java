@@ -37,7 +37,9 @@ public class ListArticoliServlet extends HttpServlet {
 		try {
 			request.setAttribute("listaArticoliAttribute", MyServiceFactory.getArticoloServiceInstance().listAll());
 		} catch (Exception e) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		request.getRequestDispatcher("articolo/results.jsp").forward(request, response);
 	}

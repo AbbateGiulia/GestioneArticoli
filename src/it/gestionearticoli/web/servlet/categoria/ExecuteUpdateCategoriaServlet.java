@@ -76,7 +76,9 @@ public class ExecuteUpdateCategoriaServlet extends HttpServlet {
 					request.setAttribute("listaCategorieAttribute", MyServiceFactory.getCategoriaServiceInstance().listAll());
 					request.setAttribute("successMessage", "Operazione effettuata con successo");
 				} catch (Exception e) {
+					request.getRequestDispatcher("index.jsp").forward(request, response);
 					e.printStackTrace();
+					return;
 				}
 
 				// DOVE VADO

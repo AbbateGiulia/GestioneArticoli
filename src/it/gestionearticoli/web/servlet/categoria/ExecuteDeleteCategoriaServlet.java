@@ -62,8 +62,9 @@ public class ExecuteDeleteCategoriaServlet extends HttpServlet {
 				return;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 
 		request.setAttribute("categoriaDaRimuovere", param);

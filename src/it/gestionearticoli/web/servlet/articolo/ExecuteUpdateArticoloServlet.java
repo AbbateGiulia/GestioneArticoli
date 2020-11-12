@@ -77,8 +77,10 @@ public class ExecuteUpdateArticoloServlet extends HttpServlet {
 		try {
 			result2=service2.findById(idCategoria2);
 		} catch (Exception e2) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e2.printStackTrace();
+			return;
+			
 		}
 		
 		
@@ -90,8 +92,9 @@ public class ExecuteUpdateArticoloServlet extends HttpServlet {
 			try {
 				result=service.findById(idCategoria);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 				e.printStackTrace();
+				return;
 			}
 			
 			Articolo articoloInstance = new Articolo(codiceInputParam, descrizioneInputParam, prezzo, result);

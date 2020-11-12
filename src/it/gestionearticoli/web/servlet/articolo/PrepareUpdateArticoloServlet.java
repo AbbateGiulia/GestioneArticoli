@@ -67,19 +67,22 @@ public class PrepareUpdateArticoloServlet extends HttpServlet {
 			}
 			
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		
 		CategoriaService service = MyServiceFactory.getCategoriaServiceInstance();
 		try {
 			request.setAttribute("listaCategorieAttribute", service.listAll());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		
 		request.setAttribute("articoloDaInviareAPaginaUpdate", result);

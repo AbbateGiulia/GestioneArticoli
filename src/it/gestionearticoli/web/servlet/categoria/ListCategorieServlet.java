@@ -46,7 +46,9 @@ public class ListCategorieServlet extends HttpServlet {
 				try {
 					request.setAttribute("listaCategorieAttribute", MyServiceFactory.getCategoriaServiceInstance().listAll());
 				} catch (Exception e) {
+					request.getRequestDispatcher("index.jsp").forward(request, response);
 					e.printStackTrace();
+					return;
 				}
 				request.getRequestDispatcher("categoria/listacategorie.jsp").forward(request, response);
 	}

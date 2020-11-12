@@ -58,8 +58,9 @@ public class ExecuteLoginServlet extends HttpServlet {
 				return;	
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		 request.getSession().setAttribute("oggettoSessione", result);
 		 

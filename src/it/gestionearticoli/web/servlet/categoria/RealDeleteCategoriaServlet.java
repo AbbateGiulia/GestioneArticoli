@@ -62,7 +62,9 @@ public class RealDeleteCategoriaServlet extends HttpServlet {
 			}			
 			
 		} catch (Exception e) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		try {
 			

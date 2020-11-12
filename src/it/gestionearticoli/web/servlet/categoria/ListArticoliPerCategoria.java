@@ -59,7 +59,9 @@ public class ListArticoliPerCategoria extends HttpServlet {
 			request.setAttribute("listaArticoliAttribute",
 					MyServiceFactory.getArticoloServiceInstance().listByCategoria(result));
 		} catch (Exception e) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			e.printStackTrace();
+			return;
 		}
 		request.getRequestDispatcher("categoria/resultsfromcategoria.jsp").forward(request, response); // jsp lista
 	}
